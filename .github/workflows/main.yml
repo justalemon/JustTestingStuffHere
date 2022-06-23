@@ -13,7 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Patch csproj version
-        uses: justalemon/VersionPatcher@4725353079d86c88f2be6633e448ff6d2d48cab5
+        uses: justalemon/VersionPatcher@6c898ab5d74378ba18ed03fbabc7f0416e4e0fcd
         with:
           version: 1.0.0.${{ github.run_number }}
+          use-tag: "true"
           csproj-files: "**/**.csproj"
