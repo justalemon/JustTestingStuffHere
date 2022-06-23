@@ -1,0 +1,19 @@
+name: Compile Mod
+on:
+  release:
+    types:
+      - created
+  push:
+  pull_request:
+
+jobs:
+  lint-and-compile:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Patch csproj version
+        uses: justalemon/VersionPatcher@4725353079d86c88f2be6633e448ff6d2d48cab5
+        with:
+          version: 1.0.0.${{ github.run_number }}
+          csproj-files: "**/**.csproj"
